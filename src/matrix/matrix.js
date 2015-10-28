@@ -240,7 +240,8 @@ function decompose(matrix) {
     }
 
     // Next take care of translation
-    translate = new Vector4(matrix.m41, matrix.m42, matrix.m43);
+    // If it's a 2D matrix, e and f will be filled
+    translate = new Vector4(matrix.e || matrix.m41, matrix.f || matrix.m42, matrix.m43);
 
     // Now get scale and shear. 'row' is a 3 element array of 3 component vectors
     row = [ new Vector4(), new Vector4(), new Vector4() ];
