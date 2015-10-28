@@ -13,7 +13,7 @@ spring(element)
     .yoyo()
     // use flux.transform to update the
     // element with a 2d or 3d matrix
-    .on('update', flux.transform)
+    .on('update', spring.transform)
     .start();
 
 // animate an object's properties
