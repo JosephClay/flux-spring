@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>flux | springs</title>
+
+		<style>
+			body {
+				margin: 0px;
+				padding: 50px 20px;
+				font-family: sans-serif;
+			}
+				.main {
+					overflow: hidden;
+
+					-webkit-transform-style: preserve-3d;
+							transform-style: preserve-3d;
+
+	   				-webkit-perspective: 1000;
+	   				        perspective: 1000;
+				}
+
+					.sample {
+						position: relative;
+						width: 75px;
+						height: 100px;
+						margin: 0 50px 50px 0;
+						float: left;
+						text-align: center;
+					}
+						.box {
+							position: absolute;
+							width: 75px;
+							height: 75px;
+							top: 0;
+							left: 0;
+							background: #000;
+						}
+						.label {
+							position: absolute;
+							width: 100%;
+							bottom: 0;
+							left: 0;
+							font-size: 11px;
+						}
+
+				[data-x] {
+					transform: translate3d(0, 0, 0);
+				}
+		</style>
+	</head>
+	<body>
+
+		<div class="main">
+
+			<div class="sample">
+				<div class="box" data-x></div>
+				<span class="label">translate x</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-y></div>
+				<span class="label">translate y</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-z></div>
+				<span class="label">translate z</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-x></div>
+				<span class="label">scale x</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-y></div>
+				<span class="label">scale y</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-z></div>
+				<span class="label">scale z</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale></div>
+				<span class="label">scale</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-x></div>
+				<span class="label">rotate x</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-y></div>
+				<span class="label">rotate y</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-z></div>
+				<span class="label">rotate z</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate></div>
+				<span class="label">rotate</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-x-from></div>
+				<span class="label">translate x from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-y-from></div>
+				<span class="label">translate y from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-z-from></div>
+				<span class="label">translate z from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-x-from></div>
+				<span class="label">scale x from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-y-from></div>
+				<span class="label">scale y from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-scale-z-from></div>
+				<span class="label">scale z from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-x-from></div>
+				<span class="label">rotate x from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-y-from></div>
+				<span class="label">rotate y from</span>
+			</div>
+
+			<div class="sample">
+				<div class="box" data-rotate-z-from></div>
+				<span class="label">rotate z from</span>
+			</div>
+
+		</div>
+
+		<script src="dist/flux.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>

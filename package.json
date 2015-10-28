@@ -1,0 +1,40 @@
+{
+  "name": "flux-spring",
+  "title": "flux-spring",
+  "description": "javascript tweens and springs",
+  "version": "0.0.1",
+  "main": "./src/index.js",
+  "homepage": "https://github.com/JosephClay/flux-spring.js",
+  "licenses": "MIT",
+  "author": {
+    "name": "Joseph Clay",
+    "email": "testingriven@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JosephClay/flux-spring.js.git"
+  },
+  "scripts": {
+    "start": "http-server ./test",
+    "test": "babel-node test/tape.js | tap-dot",
+    "run": "babel-node test/run.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-object-assign": "^1.2.1",
+    "babelify": "^6.4.0",
+    "browserify": "^6.2.0",
+    "gulp": "^3.8.9",
+    "http-server": "^0.8.5",
+    "tap-dot": "^1.0.0",
+    "tape": "^4.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.0"
+  },
+  "dependencies": {}
+}
