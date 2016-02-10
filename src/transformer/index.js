@@ -1,10 +1,8 @@
-// TODO: Get rid of deletes
+const isElement = require('./isElement');
+const baser = require('./baser');
+const expandShorthand = require('./expandShorthand');
 
-import isElement from './isElement';
-import baser from './baser';
-import expandShorthand from './expandShorthand';
-
-export default function matrix(initial) {
+module.exports = function matrix(initial) {
     let init = initial;
 
     let base;
@@ -81,4 +79,4 @@ export default function matrix(initial) {
             return this;
         }
     };
-}
+};

@@ -1,7 +1,7 @@
-import tape from 'tape';
-// import flux from '../src';
+const tape = require('tape');
+// const flux = require('../src');
 
-import expandShorthand from '../src/matrix/expandShorthand';
+const expandShorthand = require('../src/matrix/expandShorthand');
 
 tape('expand shorthand', function(t) {
     t.plan(5);

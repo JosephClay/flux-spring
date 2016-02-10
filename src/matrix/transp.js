@@ -9,7 +9,7 @@ const valueToObject = function(value) {
     };
 };
 
-export default function statementToObject(statement, skipValues) {
+module.exports = function statementToObject(statement, skipValues) {
     const nameAndArgs    = /(\w+)\(([^\)]+)\)/i;
     const statementParts = statement.toString().match(nameAndArgs).slice(1);
     const functionName   = statementParts[0];
@@ -21,4 +21,4 @@ export default function statementToObject(statement, skipValues) {
         value: parsedValues || stringValues,
         unparsed: statement
     };
-}
+};

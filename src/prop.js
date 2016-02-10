@@ -9,7 +9,7 @@ const selectProp = function(arr) {
     }
 };
 
-export default selectProp([
+module.exports = selectProp([
     'transform',
     'msTransform',
     'oTransform',

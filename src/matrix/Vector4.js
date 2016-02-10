@@ -1,16 +1,16 @@
-import vector from './vector';
+const vector = require('./vector');
 
 /**
  * A 4 dimensional vector
  * @constructor
  */
-function Vector4(x, y, z, w) {
+const Vector4 = module.exports = function Vector4(x, y, z, w) {
     this.x = x;
     this.y = y;
     this.z = z;
     this.w = w;
     this.checkValues();
-}
+};
 
 Vector4.prototype = {
     constructor: Vector4,
@@ -77,5 +77,3 @@ Vector4.prototype = {
         return vector.multiplyByMatrix(this, matrix);
     }
 };
-
-export default Vector4;

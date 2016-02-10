@@ -37,7 +37,7 @@ const calcState = function(state, speed) {
     return state;
 };
 
-export default function spring() {
+module.exports = function spring() {
     let velocity       = 0;
     let tension        = 80;
     let friction       = 8;
@@ -165,4 +165,4 @@ export default function spring() {
             value = 0;
         }
     };
-}
+};

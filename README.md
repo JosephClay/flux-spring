@@ -4,7 +4,7 @@ js spring animations
 `npm i flux-spring`
 
 ```js
-import spring = 'flux-spring';
+const spring = require('flux-spring');
 
 // animate a DOM element
 spring(element)

@@ -1,14 +1,11 @@
-import deg2rad from './deg2rad';
-import matrix from './matrix';
-import transp from './transp';
+const deg2rad = require('./deg2rad');
+const matrix = require('./matrix');
+const transp = require('./transp');
 
-const indexToKey2d = function(index) {
-    return String.fromCharCode(index + 97); // ASCII char 97 == 'a'
-};
+// ASCII char 97 == 'a'
+const indexToKey2d = index => String.fromCharCode(index + 97);
 
-const indexToKey3d = function(index) {
-    return ('m' + (Math.floor(index / 4) + 1)) + (index % 4 + 1);
-};
+const indexToKey3d = index => ('m' + (Math.floor(index / 4) + 1)) + (index % 4 + 1);
 
 const points2d = [
     'm11', // a
@@ -40,16 +37,15 @@ const lookupToFixed = function(p) {
  *    output from [[@link#toString]].
  *  @returns {XCSSMatrix} matrix
  */
-function XCSSMatrix(str) {
+const XCSSMatrix = module.exports = function XCSSMatrix(str) {
     this.m11 = this.m22 = this.m33 = this.m44 = 1;
-
                this.m12 = this.m13 = this.m14 =
     this.m21 =            this.m23 = this.m24 =
     this.m31 = this.m32 =            this.m34 =
     this.m41 = this.m42 = this.m43            = 0;
 
     this.setMatrixValue(str);
-}
+};
 
 XCSSMatrix.prototype = {
     constructor: XCSSMatrix,
@@ -275,5 +271,3 @@ XCSSMatrix.prototype = {
         return `${prefix}(${points.map(lookupToFixed, this).join(', ')})`;
     }
 };
-
-export default XCSSMatrix;

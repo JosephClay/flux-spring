@@ -1,8 +1,8 @@
-import loop from './loop';
-import transformer from './transformer';
-import s from './spring';
+const loop = require('./loop');
+const transformer = require('./transformer');
+const s = require('./spring');
 
-export default function animation(obj) {
+module.exports = function animation(obj) {
     const api     = {};
     const matrix  = transformer(obj);
     let playing   = false;
@@ -149,4 +149,4 @@ export default function animation(obj) {
             return api;
         }
     });
-}
+};

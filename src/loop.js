@@ -1,7 +1,7 @@
 const waiting    = [];
 const animations = [];
 
-export default {
+module.exports = {
     now: Date.now(),
 
     await(fn) {

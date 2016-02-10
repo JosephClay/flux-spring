@@ -63,7 +63,7 @@ function multiplyByMatrix(vector, matrix) {
     );
 }
 
-export default {
+module.exports = {
     length,
     normalize,
     dot,

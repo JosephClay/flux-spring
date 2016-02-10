@@ -1,4 +1,4 @@
-import flux from '../src';
+const flux = require('../src');
 
 flux({ x: 100, scale: 1, y: 1 })
     .to({ x: 0, scale: 0 })

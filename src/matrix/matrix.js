@@ -1,4 +1,4 @@
-import Vector4 from './Vector4';
+const Vector4 = require('./Vector4');
 
 /**
  *  Calculates the determinant of a 2x2 matrix.
@@ -199,8 +199,19 @@ function transpose(matrix) {
  *  Returns false if the matrix cannot be decomposed, true if it can
  */
 function decompose(matrix) {
-    var perspectiveMatrix, rightHandSide, inversePerspectiveMatrix, transposedInversePerspectiveMatrix,
-      perspective, translate, row, i, len, scale, skew, pdum3, rotate;
+    let perspectiveMatrix,
+        rightHandSide,
+        inversePerspectiveMatrix,
+        transposedInversePerspectiveMatrix,
+        perspective,
+        translate,
+        row,
+        i,
+        len,
+        scale,
+        skew,
+        pdum3,
+        rotate;
 
     // Normalize the matrix.
     if (matrix.m33 === 0) { return false; }
@@ -332,7 +343,7 @@ function decompose(matrix) {
     };
 }
 
-export default {
+module.exports = {
     decompose,
     isAffine,
     inverse,

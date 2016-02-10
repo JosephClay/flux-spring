@@ -1,3 +1,1 @@
-export default function(obj) {
-    return !!(obj && +obj.nodeType === obj.nodeType);
-}
+module.exports = obj => !!(obj && +obj.nodeType === obj.nodeType);

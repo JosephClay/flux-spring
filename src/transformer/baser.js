@@ -1,5 +1,5 @@
-import Matrix from '../matrix';
-import transformProp from '../prop';
+const Matrix = require('../matrix');
+const transformProp = require('../prop');
 
 const getComputedStyle = function(elem) {
     return document.defaultView.getComputedStyle(elem);
@@ -27,7 +27,7 @@ const decompose = function(matrix) {
     };
 };
 
-export default {
+module.exports = {
     style(elem) {
         const computedStyles = getComputedStyle(elem);
         const transform = computedStyles[transformProp];

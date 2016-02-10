@@ -1,16 +1,16 @@
-import loop from './loop';
-import prop from './prop';
-import animation from './animation';
-import transform from './transform';
+const loop = require('./loop');
+const prop = require('./prop');
+const animation = require('./animation');
+const transform = require('./transform');
 const plugins   = {};
 
-export default Object.assign(function(obj) {
+module.exports = Object.assign(function(obj) {
     return Object.assign(animation(obj), plugins);
 }, {
     prop,
     transform,
+    tick: loop.update,
     update: loop.update,
-	tick:   loop.update,
     plugin(name, fn) {
         plugins[name] = function() {
             fn.apply(this, arguments);

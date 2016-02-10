@@ -4,6 +4,4 @@
  *  @param {number} angle - An angle in degrees.
  *  @returns {number} radians
  */
-export default function deg2rad(angle) {
-    return angle * Math.PI / 180;
-}
+module.exports = angle => angle * Math.PI / 180;

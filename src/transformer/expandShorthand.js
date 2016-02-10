@@ -27,7 +27,4 @@ const expand = function(obj) {
     return obj;
 };
 
-export default function(obj) {
-    if (!obj) { return obj; }
-    return expand(obj);
-}
+module.exports = obj => !obj ? obj : expand(obj);
