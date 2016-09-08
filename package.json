@@ -15,9 +15,9 @@
     "url": "https://github.com/JosephClay/flux-spring.js.git"
   },
   "scripts": {
-    "start": "http-server ./test",
-    "test": "babel-node test/tape.js | tap-dot",
-    "run": "babel-node test/run.js"
+    "start": "http-server ./test -p 1777",
+    "test": "node test/test | tap-dot",
+    "run": "node test/run.js"
   },
   "browserify": {
     "transform": [
