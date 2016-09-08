@@ -77,7 +77,8 @@ Alternative to set the tensnion, friction and velocity.
 
 `.on(String, Function)`
 
-Subscribe to an event.
+Subscribe to an event. By default, "start", "update" and "complete"
+events will fire when the animation starts, updates and stops.
 
 `.off(String, Function)`
 
