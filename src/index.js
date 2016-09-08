@@ -2,7 +2,7 @@ const loop = require('./loop');
 const prop = require('./prop');
 const animation = require('./animation');
 const transform = require('./transform');
-const plugins   = {};
+const plugins = {};
 
 module.exports = Object.assign(function(obj) {
 	return Object.assign(animation(obj), plugins);

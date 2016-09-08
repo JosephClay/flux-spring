@@ -1,18 +1,21 @@
-const div = document.createElement('div');
+let div = document.createElement('div');
 
 const selectProp = function(arr) {
-    var idx = arr.length;
-    while (idx--) {
-        if (div.style[arr[idx]] !== undefined) {
-            return arr[idx];
-        }
-    }
+	var idx = arr.length;
+	while (idx--) {
+		if (div.style[arr[idx]] !== undefined) {
+			return arr[idx];
+		}
+	}
+	return '';
 };
 
 module.exports = selectProp([
-    'transform',
-    'msTransform',
-    'oTransform',
-    'mozTransform',
-    'webkitTransform'
-]) || '';
+	'transform',
+	'msTransform',
+	'oTransform',
+	'mozTransform',
+	'webkitTransform'
+]);
+
+div = undefined;

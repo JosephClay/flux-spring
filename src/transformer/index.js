@@ -3,80 +3,80 @@ const baser = require('./baser');
 const expandShorthand = require('./expandShorthand');
 
 module.exports = function matrix(initial) {
-    let init = initial;
+	let init = initial;
 
-    let base;
-    let yoyo;
-    let from;
-    let to;
-    let repeat;
+	let base;
+	let yoyo;
+	let from;
+	let to;
+	let repeat;
 
-    return {
-        value() {
-            return base;
-        },
+	return {
+		value() {
+			return base;
+		},
 
-        yoyo(bool) {
-            yoyo = bool;
-            return this;
-        },
+		yoyo(bool) {
+			yoyo = bool;
+			return this;
+		},
 
-        from(f) {
-            init = f;
-            return this;
-        },
+		from(f) {
+			init = f;
+			return this;
+		},
 
-        to(t) {
-            to = expandShorthand(t);
-            return this;
-        },
+		to(t) {
+			to = expandShorthand(t);
+			return this;
+		},
 
-        update(perc) {
-            for (let property in to) {
-                let start = from[property] || 0;
-                let end = to[property];
+		update(perc) {
+			for (let property in to) {
+				let start = from[property] || 0;
+				let end = to[property];
 
-                base[property] = start + (end - start) * perc;
-            }
+				base[property] = start + (end - start) * perc;
+			}
 
-            return this;
-        },
+			return this;
+		},
 
-        reverse() {
-            var tmp;
+		reverse() {
+			var tmp;
 
-            // reassign starting values
-            for (let property in repeat) {
-                if (yoyo) {
-                    tmp = repeat[property];
-                    repeat[property] = to[property];
-                    to[property] = tmp;
-                }
+			// reassign starting values
+			for (let property in repeat) {
+				if (yoyo) {
+					tmp = repeat[property];
+					repeat[property] = to[property];
+					to[property] = tmp;
+				}
 
-                from[property] = repeat[property];
-            }
+				from[property] = repeat[property];
+			}
 
-            return this;
-        },
+			return this;
+		},
 
-        start() {
-            if (!to) { return this; }
-            if (!base) { base = isElement(init) ? baser.style(init) : baser.obj(expandShorthand(init)); }
-            if (!from) { from = {}; }
-            if (!repeat) { repeat = {}; }
+		start() {
+			if (!to) { return this; }
+			if (!base) { base = isElement(init) ? baser.style(init) : baser.obj(expandShorthand(init)); }
+			if (!from) { from = {}; }
+			if (!repeat) { repeat = {}; }
 
-            for (let property in to) {
-                // omit unchanged properties
-                if (base[property] === undefined || to[property] === base[property]) {
-                    delete to[property];
-                    continue;
-                }
+			for (let property in to) {
+				// omit unchanged properties
+				if (base[property] === undefined || to[property] === base[property]) {
+					delete to[property];
+					continue;
+				}
 
-                from[property] = base[property];
-                repeat[property] = from[property] || 0;
-            }
+				from[property] = base[property];
+				repeat[property] = from[property] || 0;
+			}
 
-            return this;
-        }
-    };
+			return this;
+		}
+	};
 };

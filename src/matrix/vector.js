@@ -3,7 +3,7 @@
  * @returns {float}
  */
 function length(vector) {
-    return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
+	return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
 }
 
 /**
@@ -11,10 +11,10 @@ function length(vector) {
  * @returns {Vector4}
  */
 function normalize(vector) {
-    var len = length(vector),
-        v = new vector.constructor(vector.x / len, vector.y / len, vector.z / len);
+	var len = length(vector),
+		v = new vector.constructor(vector.x / len, vector.y / len, vector.z / len);
 
-    return v;
+	return v;
 }
 
 /**
@@ -23,7 +23,7 @@ function normalize(vector) {
  * @returns {float} The Dot-Product of a and b.
  */
 function dot(a, b) {
-    return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+	return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 /**
@@ -32,11 +32,11 @@ function dot(a, b) {
  * @returns {Vector4} The Cross-Product of a and b.
  */
 function cross(a, b) {
-    return new a.constructor(
-        (a.y * b.z) - (a.z * b.y),
-        (a.z * b.x) - (a.x * b.z),
-        (a.x * b.y) - (a.y * b.x)
-    );
+	return new a.constructor(
+		(a.y * b.z) - (a.z * b.y),
+		(a.z * b.x) - (a.x * b.z),
+		(a.x * b.y) - (a.y * b.x)
+	);
 }
 
 /**
@@ -48,26 +48,26 @@ function cross(a, b) {
  * @returns {Vector4}
  */
 function combine(aPoint, bPoint, ascl, bscl) {
-    return new aPoint.constructor(
-        (ascl * aPoint.x) + (bscl * bPoint.x),
-        (ascl * aPoint.y) + (bscl * bPoint.y),
-        (ascl * aPoint.z) + (bscl * bPoint.z)
-    );
+	return new aPoint.constructor(
+		(ascl * aPoint.x) + (bscl * bPoint.x),
+		(ascl * aPoint.y) + (bscl * bPoint.y),
+		(ascl * aPoint.z) + (bscl * bPoint.z)
+	);
 }
 
 function multiplyByMatrix(vector, matrix) {
-    return new vector.constructor(
-        (matrix.m11 * vector.x) + (matrix.m12 * vector.y) + (matrix.m13 * vector.z),
-        (matrix.m21 * vector.x) + (matrix.m22 * vector.y) + (matrix.m23 * vector.z),
-        (matrix.m31 * vector.x) + (matrix.m32 * vector.y) + (matrix.m33 * vector.z)
-    );
+	return new vector.constructor(
+		(matrix.m11 * vector.x) + (matrix.m12 * vector.y) + (matrix.m13 * vector.z),
+		(matrix.m21 * vector.x) + (matrix.m22 * vector.y) + (matrix.m23 * vector.z),
+		(matrix.m31 * vector.x) + (matrix.m32 * vector.y) + (matrix.m33 * vector.z)
+	);
 }
 
 module.exports = {
-    length,
-    normalize,
-    dot,
-    cross,
-    combine,
-    multiplyByMatrix
+	length,
+	normalize,
+	dot,
+	cross,
+	combine,
+	multiplyByMatrix
 };
