@@ -17,7 +17,8 @@
   "scripts": {
     "start": "http-server ./test -p 1777",
     "test": "node test/test | tap-dot",
-    "run": "node test/run.js"
+    "run": "node test/run.js",
+    "build": "gulp"
   },
   "browserify": {
     "transform": [
@@ -25,16 +26,16 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-object-assign": "^1.2.1",
-    "babelify": "^6.4.0",
-    "browserify": "^6.2.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
     "gulp": "^3.8.9",
-    "http-server": "^0.8.5",
+    "http-server": "^0.9.0",
     "tap-dot": "^1.0.0",
     "tape": "^4.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.1.0"
+    "watchify": "^3.7.0"
   },
   "dependencies": {}
 }

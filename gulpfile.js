@@ -1,26 +1,22 @@
-var gulp       = require('gulp');
-var watchify   = require('watchify');
-var browserify = require('browserify');
-var babelify   = require('babelify');
-var buffer     = require('vinyl-buffer');
-var source     = require('vinyl-source-stream');
+const gulp = require('gulp');
+const watchify = require('watchify');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 
 gulp.task('build', function() {
-    var bundler = watchify(
+    const bundler = watchify(
         browserify({
             debug: true,
             standalone: 'flux',
             cache: {}
         })
         .add('./src/index.js')
-        .transform(
-            babelify.configure({
-                plugins: ['object-assign']
-            })
-        )
+        .transform(babelify)
     );
 
-    var rebundle = function() {
+    const rebundle = function() {
         return bundler.bundle()
             .pipe(source('flux.js'))
             .pipe(buffer())
