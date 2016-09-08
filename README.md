@@ -38,9 +38,96 @@ function tick() {
 tick();
 ```
 
+## API
+
+### animation
+
+Calling `spring` returns an animation. `spring` takes a DOM element,
+an object or void. The object accepts the following params: x, y, z,
+scaleX, scaleY, scaleZ, skewX, skewY, rotateX, rotateY, rotateZ.
+
+```js
+const spring = require('flux-spring');
+const animation = spring(elem || {});
+```
+
+`.from(Object)`
+
+Sets the starting state. Equivalent to invoking spring with the object.
+
+`.to(Object)`
+
+Sets the end state of the animation.
+
+`.tension(Number)`
+
+Sets the tension of the spring.
+
+`.friction(Number)`
+
+Sets the friction of the spring.
+
+`.velocity(Number)`
+
+Sets the velocity of the spring.
+
+`.set(tension, friction, velocity)`
+
+Alternative to set the tensnion, friction and velocity.
+
+`.on(String, Function)`
+
+Subscribe to an event.
+
+`.off(String, Function)`
+
+Unsubscribe to an event.
+
+`.trigger(String, *, *)`
+
+Triggers an event, passing the provided parameters.
+
+`.delay(Number)`
+
+ms to delay the animation after calling start.
+
+`.repeat(Number)`
+
+The number of times to repeat the animation.
+
+`.yoyo(Boolean)`
+
+Sets whether the animation should "yoyo".
+
+`.start()`
+
+Starts the animation.
+
+### statics
+
+`.transform(matrix, element)`
+
+Transforms an element by a given matrix.
+
+`.tick()`
+
+Triggers an animation tick.
+
+`.update()`
+
+Alias for `.tick()`.
+
+`.plugin(String, Function)`
+
+Define a plugin. The plugin (Function) will be assigned to an animation
+on creation by name (String). The function will have access to the
+animation via `this` and returns `this` for chaining.
+
 ## Tests
 
-`npm test`
+First, run `npm install`.
+
+Then run `npm test`.
 
 For a visual test:
 
