@@ -1,11 +1,17 @@
 {
     "env": {
         "browser": true,
-        "node": true
+        "node": true,
+        "es6":true
     },
     "plugins": [
         "react"
     ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "ecmaFeatures": {
         "arrowFunctions": true,
         "binaryLiterals": false,
@@ -36,7 +42,7 @@
         "eqeqeq": 2,
         "no-lonely-if": 2,
         "no-mixed-spaces-and-tabs": 2,
-        "indent": [2, 4],
+        "indent": [1, "tab", { "SwitchCase": 4, "VariableDeclarator": { "var": 4, "let": 4, "const": 4 } }],
         "no-multi-spaces": 0,
         "no-lone-blocks": 2,
         "no-loop-func": 2,
@@ -44,10 +50,56 @@
         "quotes": [1, "single"],
         "consistent-return": 0,
         "eol-last": 0,
-        "no-return-assign": 0,
-        "key-spacing": 0,
+        "no-return-assign": 2,
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true, "mode": "minimum" }],
         "no-mixed-requires": 0,
         "no-shadow": 0,
-        "new-cap": 0
+        "new-cap": 0,
+        "no-process-exit": 0,
+        "init-declarations": 0,
+        "no-catch-shadow": 0,
+        "no-delete-var": 2,
+        "no-label-var": 0,
+        "no-shadow-restricted-names": 2,
+        "no-undef-init": 0,
+        "no-undef": 2,
+        "no-undefined": 0,
+        "no-unused-vars": [2, {"vars": "local", "args": "after-used"}],
+        "no-underscore-dangle": 0,
+        "no-use-before-define": 2,
+        "callback-return": 0,
+        "handle-callback-err": 0,
+        "no-new-require": 0,
+        "no-path-concat": 0,
+        "no-restricted-modules": 0,
+        "no-sync": 0,
+        "react/display-name": 0,
+        "react/jsx-boolean-value": 0,
+        "react/jsx-curly-spacing": 0,
+        "react/jsx-no-duplicate-props": 0,
+        "react/jsx-no-undef": 2,
+        "react/jsx-sort-prop-types": 0,
+        "react/jsx-sort-props": 0,
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-danger": 0,
+        "react/no-did-update-set-state": 2,
+        "react/no-multi-comp": 0,
+        "react/no-unknown-property": 2,
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 2,
+        "react/require-extension": 0,
+        "react/self-closing-comp": 2,
+        "react/sort-comp": [2, {
+            "order": [
+                "lifecycle",
+                "/^on.+$/",
+                "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+                "everything-else",
+                "/^render.+$/",
+                "render"
+            ]
+        }],
+        "react/wrap-multilines": 2
     }
 }
