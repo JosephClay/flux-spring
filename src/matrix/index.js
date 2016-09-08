@@ -127,10 +127,10 @@ XCSSMatrix.prototype = {
 		tx.m32 *= -1;
 
 		const identityMatrix = new XCSSMatrix(); // returns identity matrix by default
-		const isIdentity     = this.toString() === identityMatrix.toString();
-		const rotatedMatrix  = isIdentity ?
-				tz.multiply(ty).multiply(tx) :
-				this.multiply(tx).multiply(ty).multiply(tz);
+		const isIdentity = this.toString() === identityMatrix.toString();
+		const rotatedMatrix = isIdentity ?
+			tz.multiply(ty).multiply(tx) :
+			this.multiply(tx).multiply(ty).multiply(tz);
 
 		return rotatedMatrix;
 	},
