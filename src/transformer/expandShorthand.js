@@ -1,3 +1,9 @@
+/**
+ * Expands the shorthand of an object to usable
+ * matrix properties. Biggest ones are the common
+ * "scale" and "rotate" props.
+ */
+
 /*
 	var MATRIX = {
 		x: 0,

@@ -1,5 +1,5 @@
 const deg2rad = require('./deg2rad');
-const matrix = require('./matrix');
+const matrix = require('./static');
 const transp = require('./transp');
 
 // ASCII char 97 == 'a'

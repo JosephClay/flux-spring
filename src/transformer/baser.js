@@ -1,3 +1,11 @@
+/**
+ * Helps "base" a matrix POJO off of either an element
+ * or another POJO. Acts as a normalizer between the two
+ * ways to pass arguments to flux-spring:
+ * - spring(element)
+ * - spring({...})
+ */
+
 const Matrix = require('../matrix');
 const transformProp = require('../prop');
 

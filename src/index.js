@@ -4,6 +4,9 @@ const animation = require('./animation');
 const transform = require('./transform');
 const plugins = {};
 
+/**
+ * The public api
+ */
 module.exports = Object.assign(function(obj) {
 	return Object.assign(animation(obj), plugins);
 }, {

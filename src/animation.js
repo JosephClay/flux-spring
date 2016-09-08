@@ -1,26 +1,34 @@
+/**
+ * Encapsulates the functionality of an animation.
+ * Constructs and tears down the matrix, the spring
+ * and the loop. Acts as the interface to the user for
+ * configuration.
+ */
+
 const loop = require('./loop');
 const transformer = require('./transformer');
-const s = require('./spring');
+const spr = require('./spring');
 
 module.exports = function animation(obj) {
-	const api     = {};
-	const matrix  = transformer(obj);
-	let playing   = false;
+	const api = {};
+	const matrix = transformer(obj);
+	const events = {};
+	const spring = spr();
+
+	let playing = false;
 	let startTime = 0;
 	let delayTime = 0;
-	let events    = {};
-	let spring    = s();
 
 	const start = function() {
 		spring.registerCallbacks({
-			onUpdate: (perc) => {
+			onUpdate(perc) {
 				matrix.update(perc);
 				api.trigger('update', matrix.value(), obj);
 			},
-			onReverse: () => {
+			onReverse() {
 				matrix.reverse();
 			},
-			onComplete: () => {
+			onComplete() {
 				api.stop().trigger('complete');
 			}
 		});

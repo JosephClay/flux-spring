@@ -11,8 +11,8 @@ function length(vector) {
  * @returns {Vector4}
  */
 function normalize(vector) {
-	var len = length(vector),
-		v = new vector.constructor(vector.x / len, vector.y / len, vector.z / len);
+	const len = length(vector);
+	const v = new vector.constructor(vector.x / len, vector.y / len, vector.z / len);
 
 	return v;
 }
@@ -55,6 +55,11 @@ function combine(aPoint, bPoint, ascl, bscl) {
 	);
 }
 
+/**
+ * @param  {Vector4} vector
+ * @param  {Matrix} matrix
+ * @return {Vector4}
+ */
 function multiplyByMatrix(vector, matrix) {
 	return new vector.constructor(
 		(matrix.m11 * vector.x) + (matrix.m12 * vector.y) + (matrix.m13 * vector.z),

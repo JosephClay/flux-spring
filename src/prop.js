@@ -10,6 +10,12 @@ const selectProp = function(arr) {
 	return '';
 };
 
+/**
+ * Determines the transformation property to use
+ * for the environment, testing the "transform"
+ * property before testing proprietary properties
+ * @type {String}
+ */
 module.exports = selectProp([
 	'transform',
 	'msTransform',
@@ -18,4 +24,5 @@ module.exports = selectProp([
 	'webkitTransform'
 ]);
 
+// cleanup div
 div = undefined;

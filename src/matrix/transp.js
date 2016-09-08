@@ -1,3 +1,8 @@
+/**
+ * Parses a DOM string into values usable by matrix
+ * `static.js` functions to contruct a true Matrix.
+ */
+
 const valueToObject = function(value) {
 	const units = /([\-\+]?[0-9]+[\.0-9]*)(deg|rad|grad|px|%)*/;
 	const parts = value.match(units) || [];

@@ -1,6 +1,12 @@
+/**
+ * Encapsulates the functionality of a spring,
+ * calculating state based off of tension, friction
+ * and velocity. Implemented by `animation.js`
+ */
+
 const END_VALUE = 100;
 const TOLERANCE = 0.01;
-const SPEED     = 1 / 60;
+const SPEED = 1 / 60;
 
 const calcAcceleration = function(tension, x, friction, velocity) {
 	return -tension * x - friction * velocity;
@@ -8,9 +14,9 @@ const calcAcceleration = function(tension, x, friction, velocity) {
 
 const calcState = function(state, speed) {
 	const dt = speed * 0.5;
-	const x        = state.x;
+	const x = state.x;
 	const velocity = state.velocity;
-	const tension  = state.tension;
+	const tension = state.tension;
 	const friction = state.friction;
 
 	const aDx = velocity;
@@ -31,23 +37,23 @@ const calcState = function(state, speed) {
 	const dxdt = (1 / 6) * (aDx + 2 * (bDx + cDx) + dDx);
 	const dvdt = (1 / 6) * (aDv + 2 * (bDv + cDv) + dDv);
 
-	state.x        = x + dxdt * speed;
+	state.x = x + dxdt * speed;
 	state.velocity = aDx + dvdt * speed;
 
 	return state;
 };
 
 module.exports = function spring() {
-	let velocity       = 0;
-	let tension        = 80;
-	let friction       = 8;
+	let velocity = 0;
+	let tension = 80;
+	let friction = 8;
 
-	let repeat           = 0;
+	let repeat = 0;
 	let originalVelocity = 0;
-	let originalTension  = 80;
+	let originalTension = 80;
 	let originalFriction = 8;
-	let value            = 0;
-	let isPaused         = false;
+	let value = 0;
+	let isPaused = false;
 
 	// Stores x and velocity to do
 	// calculations against so that
@@ -61,9 +67,9 @@ module.exports = function spring() {
 
 	return {
 		registerCallbacks(obj) {
-			updateCallback   = obj.onUpdate;
+			updateCallback = obj.onUpdate;
 			completeCallback = obj.onComplete;
-			reverseCallback  = obj.onReverse;
+			reverseCallback = obj.onReverse;
 			return this;
 		},
 
@@ -109,22 +115,22 @@ module.exports = function spring() {
 
 			const stateBefore = state;
 
-			stateBefore.x        = value - END_VALUE;
+			stateBefore.x = value - END_VALUE;
 			stateBefore.velocity = velocity;
-			stateBefore.tension  = tension;
+			stateBefore.tension = tension;
 			stateBefore.friction = friction;
 
-			const stateAfter       = calcState(stateBefore, SPEED);
-			const finalVelocity    = stateAfter.velocity;
-			const netFloat         = stateAfter.x;
-			const net1DVelocity    = stateAfter.velocity;
-			const netValueIsLow    = Math.abs(netFloat) < TOLERANCE;
+			const stateAfter = calcState(stateBefore, SPEED);
+			const finalVelocity = stateAfter.velocity;
+			const netFloat = stateAfter.x;
+			const net1DVelocity = stateAfter.velocity;
+			const netValueIsLow = Math.abs(netFloat) < TOLERANCE;
 			const netVelocityIsLow = Math.abs(net1DVelocity) < TOLERANCE;
-			const shouldSpringStop = netValueIsLow || netVelocityIsLow;
+			const springShouldStop = netValueIsLow || netVelocityIsLow;
 
 			value = END_VALUE + stateAfter.x;
 
-			if (shouldSpringStop) {
+			if (springShouldStop) {
 
 				velocity = 0;
 				value = END_VALUE;
@@ -160,9 +166,10 @@ module.exports = function spring() {
 
 		stop() {
 			velocity = originalVelocity;
-			tension  = originalTension;
+			tension = originalTension;
 			friction = originalFriction;
 			value = 0;
+			return this;
 		}
 	};
 };
