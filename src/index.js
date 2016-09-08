@@ -5,17 +5,17 @@ const transform = require('./transform');
 const plugins   = {};
 
 module.exports = Object.assign(function(obj) {
-    return Object.assign(animation(obj), plugins);
+	return Object.assign(animation(obj), plugins);
 }, {
-    prop,
-    transform,
-    tick: loop.update,
-    update: loop.update,
-    plugin(name, fn) {
-        plugins[name] = function() {
-            fn.apply(this, arguments);
-            return this;
-        };
-        return this;
-    }
+	prop,
+	transform,
+	tick: loop.update,
+	update: loop.update,
+	plugin(name, fn) {
+		plugins[name] = function() {
+			fn.apply(this, arguments);
+			return this;
+		};
+		return this;
+	}
 });

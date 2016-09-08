@@ -1,29 +1,28 @@
-const flux = window.flux;
-const $ = document.querySelector.bind(document);
+(function(flux) {
+	var $ = document.querySelector.bind(document);
 
-const spring = flux.spring($('#target'))
-	.transform.to({ x: 200 })
-	.yoyo()
-	.repeat(Infinity)
-	.on('update', function(obj, spring) {
-		spring.elem.style[flux.transform] = spring.matrix.toString();
-	})
-	.start();
+	var spring = flux($('#target'))
+		.to({ x: 200 })
+		.yoyo()
+		.repeat(Infinity)
+		.on('update', flux.transform)
+		.start();
 
-let isPaused = false;
-setInterval(function() {
-	if (isPaused) {
-		spring.resume();
-	} else {
-		spring.pause();
-	}
+	let isPaused = false;
+	setInterval(function() {
+		if (isPaused) {
+			spring.resume();
+		} else {
+			spring.pause();
+		}
 
-	isPaused = !isPaused;
-}, 1000);
+		isPaused = !isPaused;
+	}, 1000);
 
-const tick = function(time) {
-	flux.update(time);
+	var tick = function(time) {
+		flux.update(time);
+		requestAnimationFrame(tick);
+	};
+
 	requestAnimationFrame(tick);
-};
-
-requestAnimationFrame(tick);
+}(window.flux));
