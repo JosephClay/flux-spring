@@ -28,7 +28,7 @@ spring({ x: 0 })
     .start();
 
 function tick() {
-    flux.update();
+    spring.update();
     requestAnimationFrame(tick);
 }
 tick();
