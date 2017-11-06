@@ -13,13 +13,16 @@ gulp.task('build', function() {
             cache: {}
         })
         .add('./src/index.js')
-        .transform(babelify)
+        .transform('babelify', {
+            presets: ['es2015']
+        })
     );
 
     const rebundle = function() {
         return bundler.bundle()
             .pipe(source('flux.js'))
             .pipe(buffer())
+            .pipe(gulp.dest('dist/'))
             .pipe(gulp.dest('test/dist/'));
     };
     bundler.on('update', rebundle);

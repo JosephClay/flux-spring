@@ -2,8 +2,8 @@
   "name": "flux-spring",
   "title": "flux-spring",
   "description": "javascript tweens and springs",
-  "version": "1.0.0",
-  "main": "./src/index.js",
+  "version": "1.0.1",
+  "main": "./dist/flux.js",
   "homepage": "https://github.com/JosephClay/flux-spring.js",
   "licenses": "MIT",
   "author": {
