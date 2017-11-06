@@ -18,7 +18,6 @@ gulp.task('build-watch', function() {
         return bundler.bundle()
             .pipe(source('flux.js'))
             .pipe(buffer())
-            .pipe(gulp.dest('dist/'))
             .pipe(gulp.dest('test/dist/'));
     };
     bundler.on('update', rebundle);
@@ -35,7 +34,6 @@ gulp.task('build', function() {
         .bundle()
         .pipe(source('flux.js'))
         .pipe(buffer())
-        .pipe(gulp.dest('dist/'))
         .pipe(gulp.dest('test/dist/'));
 });
 
