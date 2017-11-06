@@ -1,11 +1,10 @@
 const gulp = require('gulp');
 const watchify = require('watchify');
 const browserify = require('browserify');
-const babelify = require('babelify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
-gulp.task('build', function() {
+gulp.task('build-watch', function() {
     const bundler = watchify(
         browserify({
             debug: true,
@@ -13,9 +12,6 @@ gulp.task('build', function() {
             cache: {}
         })
         .add('./src/index.js')
-        .transform('babelify', {
-            presets: ['es2015']
-        })
     );
 
     const rebundle = function() {
@@ -27,6 +23,20 @@ gulp.task('build', function() {
     };
     bundler.on('update', rebundle);
     return rebundle();
+});
+
+gulp.task('build', function() {
+    return browserify({
+            debug: false,
+            standalone: 'flux',
+            cache: {}
+        })
+        .add('./src/index.js')
+        .bundle()
+        .pipe(source('flux.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('test/dist/'));
 });
 
 gulp.task('default', ['build']);

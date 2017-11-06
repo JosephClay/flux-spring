@@ -2,7 +2,7 @@
   "name": "flux-spring",
   "title": "flux-spring",
   "description": "javascript tweens and springs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/flux.js",
   "homepage": "https://github.com/JosephClay/flux-spring.js",
   "licenses": "MIT",
@@ -18,17 +18,11 @@
     "start": "http-server ./test -p 1777",
     "test": "node test/test | tap-dot",
     "run": "node test/run.js",
-    "build": "gulp"
-  },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
+    "watch": "gulp watch",
+    "build": "gulp build"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.0",
+    "browserify": "^14.5.0",
     "gulp": "^3.8.9",
     "http-server": "^0.9.0",
     "tap-dot": "^1.0.0",
